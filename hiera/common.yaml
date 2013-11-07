@@ -1,4 +1,5 @@
 ---
+apt::always_apt_update: true
 apache::serveradmin: "alech@localhost"
 apache::sendfile: "On"
 apache::error_documents: true
