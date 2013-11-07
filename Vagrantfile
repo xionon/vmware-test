@@ -25,13 +25,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         c.vm.network "private_network", ip: ("192.168.0.%d" % [(ip_start + i)])
 
         c.vm.synced_folder ".", "/vagrant", nfs: true
+        c.vm.synced_folder "./hiera", "/var/lib/hiera"
 
-        # c.vm.provision :shell, inline: "/opt/ruby/bin/gem update puppet --no-ri --no-rdoc"
         c.vm.provision :puppet do |puppet|
           puppet.manifests_path = "manifests"
           puppet.manifest_file  = "site.pp"
-          # puppet.hiera_config_path = "hiera.yml"
-          # puppet.module_path = "modules"
+          puppet.module_path = "modules"
+          puppet.hiera_config_path = "hiera.yaml"
         end
       end
     end

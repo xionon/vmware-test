@@ -1,0 +1,4 @@
+---
+apache::serveradmin: "alech@localhost"
+apache::sendfile: "On"
+apache::error_documents: true

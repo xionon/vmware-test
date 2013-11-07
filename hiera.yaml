@@ -1,0 +1,6 @@
+---
+:hierarchy:
+  - "%{::clientcert}" # app-1.conductor.nd.edu.yml
+  - "%{::environment}" # development.yml
+  - "virtual_%{::is_virtual}" # virtual_true.yml
+  - common # common.yml
