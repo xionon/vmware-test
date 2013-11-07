@@ -5,12 +5,21 @@ node default {
 }
 
 node /^app-\d+$/ {
-  class {'apt':
-    always_apt_update => true,
+  include apt
+  package{ 'imagemagick':
+    ensure => 'present',
   }
 
   class {'apache': 
     require => Class['apt'],
   }
+
+  /*
+    mysql client
+    git
+    memcached
+    rvm
+    application
+  */
 }
 
