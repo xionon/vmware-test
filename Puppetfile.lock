@@ -7,9 +7,12 @@ FORGE
     puppetlabs/apt (1.4.0)
       puppetlabs/stdlib (>= 2.2.1)
     puppetlabs/concat (1.0.0-rc1)
+    puppetlabs/mysql (2.0.1)
+      puppetlabs/stdlib (>= 2.2.1)
     puppetlabs/stdlib (4.1.0)
 
 DEPENDENCIES
   puppetlabs/apache (>= 0)
   puppetlabs/apt (>= 0)
+  puppetlabs/mysql (>= 0)
 
