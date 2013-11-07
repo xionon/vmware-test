@@ -6,12 +6,13 @@ node default {
 }
 
 node /^proxy-\d+$/ {
+  include varnish
 }
 
 node /^app-\d+$/ {
   include apt
   package{ 'imagemagick':
-    ensure => 'present',
+    ensure => present,
   }
 
   class {'apache':
@@ -21,11 +22,11 @@ node /^app-\d+$/ {
   include mysql::client
 
   package{'git':
-    ensure => 'present',
+    ensure => present,
   }
 
   package{'memcached':
-    ensure => 'present',
+    ensure => present,
   }
 
   group { 'deploy':
