@@ -25,8 +25,28 @@ node /^app-\d+$/ {
     ensure => 'present',
   }
 
+  group { 'deploy':
+    ensure => present,
+    gid    => 502,
+  } ~> user { 'deploy':
+    ensure     => present,
+    uid        => 502,
+    gid        => 502,
+    shell      => '/bin/bash',
+    home       => '/home/deploy',
+    managehome => true,
+  }
+
+  rbenv::install { "deploy":
+    group   => 'deploy',
+    home    => '/home/deploy',
+    require => User['deploy'],
+  } ~> rbenv::compile {"2.0.0-p247":
+    user    => 'deploy',
+    home    => '/home/deploy',
+  }
+
   /*
-    rvm
     application
   */
 }
