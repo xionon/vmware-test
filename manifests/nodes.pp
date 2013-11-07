@@ -5,6 +5,9 @@ node default {
   }
 }
 
+node /^proxy-\d+$/ {
+}
+
 node /^app-\d+$/ {
   include apt
   package{ 'imagemagick':
