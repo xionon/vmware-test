@@ -18,7 +18,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         c.vm.provider "vmware_fusion" do |v|
           v.gui = false
           v.vmx["memsize"] = "512"
-          # v.vmx["numvcpus"] = "2"
+          v.vmx["numvcpus"] = "1"
         end
 
         c.vm.hostname = "#{name}-#{i}.conductor.local"

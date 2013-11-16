@@ -4,6 +4,7 @@ mod "puppetlabs/apache"
 mod "puppetlabs/apt"
 mod "puppetlabs/mysql"
 mod "alup/rbenv"
+mod "maxchk/varnish"
 
 # mod 'puppetlabs/stdlib'
 

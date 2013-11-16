@@ -2,6 +2,7 @@ FORGE
   remote: http://forge.puppetlabs.com
   specs:
     alup/rbenv (1.2.0)
+    maxchk/varnish (0.0.1)
     puppetlabs/apache (0.9.0)
       puppetlabs/concat (>= 1.0.0)
       puppetlabs/stdlib (>= 2.4.0)
@@ -14,6 +15,7 @@ FORGE
 
 DEPENDENCIES
   alup/rbenv (>= 0)
+  maxchk/varnish (>= 0)
   puppetlabs/apache (>= 0)
   puppetlabs/apt (>= 0)
   puppetlabs/mysql (>= 0)

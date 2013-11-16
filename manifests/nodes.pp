@@ -7,6 +7,7 @@ node default {
 
 node /^proxy-\d+$/ {
   include varnish
+  include varnish::vcl
 }
 
 node /^app-\d+$/ {
