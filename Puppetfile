@@ -1,5 +1,6 @@
 forge "http://forge.puppetlabs.com"
 
+mod "jfryman/nginx"
 mod "puppetlabs/apache"
 mod "puppetlabs/apt"
 mod "puppetlabs/mysql"

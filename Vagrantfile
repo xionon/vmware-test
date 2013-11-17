@@ -3,13 +3,13 @@
 
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
-nodes = [
+NODES = [
   ['proxy', 1, 10],
-  ['app', 3, 20],
+  ['app', 1, 20],
   ['db', 1, 30],
 ]
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  nodes.each do |name, number, ip_start|
+  NODES.each do |name, number, ip_start|
     number.times do |i|
       config.vm.define "#{name}-#{i}" do |c|
         c.vm.box = "precise64_vmware"

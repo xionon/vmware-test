@@ -5,7 +5,7 @@ apache::serveradmin: "alech@localhost"
 apache::sendfile: "On"
 apache::error_documents: true
 
-varnish::varnish_listen_port:  '80'
+varnish::varnish_listen_port:  '8080'
 varnish::varnish_storage_size: '3G'
 varnish::storage_type: 'file'
 varnish::varnish_ttl: '120'
@@ -15,19 +15,19 @@ varnish::vcl::backends:
   name: 'app1'
   host: '192.168.0.20'
   port: '80'
--
-  name: 'app2'
-  host: '192.168.0.21'
-  port: '80'
--
-  name: 'app3'
-  host: '192.168.0.22'
-  port: '80'
+# -
+#   name: 'app2'
+#   host: '192.168.0.21'
+#   port: '80'
+# -
+#   name: 'app3'
+#   host: '192.168.0.22'
+#   port: '80'
 varnish::vcl::directors:
 -
   name: 'default'
   type: 'round-robin'
   backends:
   - 'app1'
-  - 'app2'
-  - 'app3'
+  # - 'app2'
+  # - 'app3'

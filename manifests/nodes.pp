@@ -8,6 +8,21 @@ node default {
 node /^proxy-\d+$/ {
   include varnish
   include varnish::vcl
+  class { 'nginx': }
+  nginx::resource::upstream { 'varnish':
+    ensure  => present,
+    members => [
+      'localhost:8080',
+    ],
+  }
+
+  nginx::resource::vhost { '*.conductor.dev':
+    listen_port => '80 default_server',
+    access_log  => '/var/log/nginx/star.conductor.dev.access.log',
+    error_log   => '/var/log/nginx/star.conductor.dev.error.log',
+    ensure      => present,
+    proxy       => 'http://varnish',
+  }
 }
 
 node /^app-\d+$/ {
